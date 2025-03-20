@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Le Coin Délices</a>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:text-gray-400">Accueil</a></li>
+                <li><a href="{% url 'menu:signup' %}" class="hover:text-gray-400">Sign up</a></li>
+                <li><a href="{% url 'menu:login' %}" class="hover:text-gray-400">Login</a></li>
+                <li><a href="{% url 'menu:logout' %}" class="hover:text-gray-400">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Imaj Kob la anlè) -->
+    <section class="relative bg-cover bg-center h-screen flex items-center justify-center" 
+        style="background-image: url('/media/menu_images/Besoins-clients-en-restauration.jpg');">
+        <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
+            <h1 class="text-5xl font-bold mb-4">Bienvenue sur Le Coin Délices</h1>
+            <p class="text-xl mb-8">Nous offrons les meilleurs services pour vos besoins.</p>
+            <a href="{% url 'menu:service' %}" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Découvrir Nos Services</a>
+        </div>
+    </section>
+
+    <!-- Section Imaj yo -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+            <img src="/media/menu_images/image.5.jpg" alt="Image 1" class="w- 1/2 rounded-lg shadow-lg w-100%">
+            <img src="/media/menu_images/download.jpg" alt="Image 2" class="w- 1/2rounded-lg shadow-lg">
+        </div>
+    </section>
+
+    <!-- Section Vidéo -->
+    <video width="100%" height="450" controls>
+        <source src="/media/menu_images/invideo-ai-480 Découvrez Le Coin Délices à Jérémie! 2025-03-20.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos.
+    </video>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 MonSite. Tous droits réservés.</p>
+            <div class="mt-4">
+                <a href="#" class="text-yellow-400 hover:text-yellow-300 mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-300 mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-300 mx-2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

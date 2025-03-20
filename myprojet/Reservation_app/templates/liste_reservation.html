@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Réservations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    <div class="max-w-4xl w-full bg-white p-6 shadow-lg rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">Liste des Réservations</h2>
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2 border">User</th>
+                    <th class="px-4 py-2 border">Table</th>
+                    <th class="px-4 py-2 border">Date</th>
+                    <th class="px-4 py-2 border">Heure</th>
+                    <th class="px-4 py-2 border">Menu</th>
+                    <th class="px-4 py-2 border">Statut</th````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````>
+                    <th class="px-4 py-2 border">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr class="text-center">
+                        <td class="px-4 py-2 border">{{ reservation.utilisateur.username }}</td>
+                        <td class="px-4 py-2 border">{{ reservation.table }}</td>
+                        <td class="px-4 py-2 border">{{ reservation.date }}</td>
+                        <td class="px-4 py-2 border">{{ reservation.heure }}</td>
+                        <td class="px-4 py-2 border">
+                            {% for menu in reservation.menu.all %}
+                                {{ menu }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td class="px-4 py-2 border">{{ reservation.statut }}</td>
+                        <td class="px-4 py-2 border flex justify-center space-x-2">
+                            {% if user == reservation.utilisateur or user.is_superuser %}
+                                <a href="{% url 'update_reservation' reservation.pk %}" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition">
+                                    Modifier
+                                </a>
+                                <a href="{% url 'delete_reservation' reservation.pk %}" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
+                                    Supprimer
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="7" class="px-4 py-2 text-center text-gray-500">Aucune réservation trouvée.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+     
+</body>
+</html>

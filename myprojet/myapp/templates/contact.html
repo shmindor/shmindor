@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-lg">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Créer un Contact</h2>
+        
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            
+            <div>
+                <label class="block text-gray-700 font-medium">Nom :</label>
+                <input type="text" name="nom" class="mt-2 w-full border p-2 rounded-lg shadow-sm" required>
+            </div>
+            
+            <div>
+                <label class="block text-gray-700 font-medium">Email :</label>
+                <input type="email" name="email" class="mt-2 w-full border p-2 rounded-lg shadow-sm" required>
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-medium">Sujet :</label>
+                <input type="text" name="sujet" class="mt-2 w-full border p-2 rounded-lg shadow-sm" required>
+            </div>
+            
+            <div>
+                <label class="block text-gray-700 font-medium">Message :</label>
+                <textarea name="message" rows="4" class="mt-2 w-full border p-2 rounded-lg shadow-sm" required></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition duration-300">
+                Créer
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+            <h3 class="text-lg font-semibold text-gray-800">Nos Coordonnées</h3>
+            <p class="text-gray-600">📍 Adresse: 123 Rue de la Restauration, Ville</p>
+            <p class="text-gray-600">📞 Téléphone: +509 48673434</p>
+            <p class="text-gray-600">📞 Téléphone: +509 47514845</p>
+            <p class="text-gray-600">📞 Téléphone: +509 31521406</p>
+            <p class="text-gray-600">✉️ Email: @restaurant.com</p>
+        </div>
+    </div>
+    
+</body>
+</html>

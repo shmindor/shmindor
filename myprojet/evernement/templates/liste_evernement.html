@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Événements</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen p-6">
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">📅 Événements Disponibles</h1>
+
+    <div class="w-full max-w-4xl space-y-6">
+        {% for evenement in evenements %}
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                {% if evenement.image %}
+                    <img src="{{ evenement.image.url }}" alt="Image de {{ evenement.nom }}" class="w-full h-64 object-cover">
+                {% endif %}
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">{{ evenement.nom }}</h2>
+                    <p class="text-gray-600 mt-2">{{ evenement.description }}</p>
+                    <p class="mt-2"><strong class="text-gray-700">Date:</strong> {{ evenement.date }}</p>
+                    <p><strong class="text-gray-700">Heure:</strong> {{ evenement.heure }}</p>
+                    <p><strong class="text-gray-700">Prix:</strong> {{ evenement.prix }} $</p>
+
+                    <div class="mt-4 flex gap-3">
+                        <a href="{% url 'detail_evenement' evenement.id %}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                            🔍 Voir détails
+                        </a>
+                        <a href="{% url 'modifier_evenement' evenement.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
+                            ✏️ Modifier
+                        </a>
+                        <form method="post" action="{% url 'supprimer_evenement' evenement.id %}" class="inline">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                                🗑️ Supprimer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'ajouter_evenement' %}" class="mt-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600">
+        ➕ Ajouter un événement
+    </a>
+
+</body>
+</html>

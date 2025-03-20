@@ -1,0 +1,9 @@
+<div class="bg-white p-6 shadow-lg rounded-lg">
+    <h2 class="text-xl font-semibold">Supprimer l'événement</h2>
+    <p>Voulez-vous vraiment supprimer "{{ evenement.nom }}" ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg">Supprimer</button>
+        <a href="{% url 'liste_evenements' %}" class="text-gray-500">Annuler</a>
+    </form>
+</div>

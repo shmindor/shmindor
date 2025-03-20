@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!-- logout.html -->
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dekoneksyon</title>
+            <!-- Tailwind CSS (si w ap itilize li) -->
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body class="bg-gray-100 flex items-center justify-center h-screen">
+            <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                <h1 class="text-2xl font-bold mb-4">Dekoneksyon</h1>
+                <p class="mb-6">Èske ou vle vrèman dekontekte?</p>
+                
+                <!-- Fòm pou logout -->
+                <form method="post" action="{% url 'menu:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+                        Wi, Dekontekte
+                    </button>
+                </form>
+            </div>
+        </body>
+        
+</head>
+<body>
+    
+    
+</body>
+</html>

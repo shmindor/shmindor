@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Contacts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200 flex items-center justify-center min-h-screen p-6">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-4xl">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Liste des Contacts</h2>
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border p-2">Nom</th>
+                    <th class="border p-2">Email</th>
+                    <th class="border p-2">Sujet</th>
+                    <th class="border p-2">Message</th>
+                    <th class="border p-2"> Date envoi </th>
+                    <th class="border p-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr class="text-center">
+                    <td class="border p-2">{{ contact.nom }}</td>
+                    <td class="border p-2">{{ contact.email }}</td>
+                    <td class="border p-2">{{ contact.sujet }}</td>
+
+                    <td class="border p-2">{{ contact.message }}</td>
+                    <td class="border p-2">{{ contact.date_envoi }}</td>
+                    <td class="border p-2">
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-4">
+            <a href="{% url 'menu:create_contact' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">Ajouter un Message</a>
+        </div>
+    </div>
+</body>
+</html>

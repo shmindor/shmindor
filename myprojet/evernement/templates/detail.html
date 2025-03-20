@@ -1,0 +1,13 @@
+<div class="bg-white p-6 shadow-lg rounded-lg">
+    <h2 class="text-xl font-semibold">{{ evenement.nom }}</h2>
+    <p>{{ evenement.description }}</p>
+    <p><strong>Date:</strong> {{ evenement.date }}</p>
+    <p><strong>Heure:</strong> {{ evenement.heure }}</p>
+    <p><strong>Prix:</strong> {{ evenement.prix }} $</p>
+    <a href="{% url 'modifier_evenement' evenement.id %}" class="text-yellow-500">Modifier</a>
+    <form method="post" action="{% url 'supprimer_evenement' evenement.id %}" class="inline">
+        {% csrf_token %}
+        <button type="submit" class="text-red-500">Supprimer</button>
+    </form>
+</div>
+<a href="{% url 'liste_evenements' %}" class="text-gray-500">Retour à la liste</a>

@@ -1,0 +1,35 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Inscription</title>
+    <style>
+        /* Background Gradient */
+        .bg-gradient {
+            background: linear-gradient(135deg, #3b82f6, #9333ea, #ef4444);
+        }
+    </style>
+</head>
+<body class="bg-gradient flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-md p-8 space-y-6 bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white">Créez un compte</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="text-white">
+                {{ form|crispy }}
+            </div>
+            <button type="submit" class="w-full py-2 mt-4 text-white bg-blue-600 rounded hover:bg-blue-700">
+                Inscription
+            </button>
+        </form>
+        <p class="text-center text-sm text-white">Déjà un compte ? 
+            <a href="{% url 'menu:login' %}" class="text-yellow-300 hover:underline">Connectez-vous</a>
+        </p>
+    </div>
+
+</body>
+</html>

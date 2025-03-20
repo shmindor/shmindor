@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer la réservation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="max-w-md w-full bg-white p-6 shadow-lg rounded-lg text-center">
+        <h2 class="text-xl font-semibold mb-4">Voulez-vous supprimer cette réservation ?</h2>
+        <p class="mb-4"><strong>Table:</strong> {{ reservation.table }}</p>
+        <p class="mb-4"><strong>Date:</strong> {{ reservation.date }}</p>
+        <p class="mb-4"><strong>Heure:</strong> {{ reservation.heure }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">
+                Supprimer
+            </button>
+            <a href="{% url 'liste_reservation' %}" class="ml-2 bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-500 transition">
+                Annuler
+            </a>
+        </form>
+    </div>
+</body>
+</html>

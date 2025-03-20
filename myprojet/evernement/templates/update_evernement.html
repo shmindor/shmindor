@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titre }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="max-w-lg w-full bg-white p-6 shadow-lg rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">{{ titre }}</h2>
+        
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.nom.id_for_label }}" class="block text-gray-700 font-semibold">Nom de l'événement</label>
+                {{ form.nom }}
+            </div>
+
+            <div>
+                <label for="{{ form.description.id_for_label }}" class="block text-gray-700 font-semibold">Description</label>
+                {{ form.description }}
+            </div>
+
+            <div>
+                <label for="{{ form.date.id_for_label }}" class="block text-gray-700 font-semibold">Date</label>
+                {{ form.date }}
+            </div>
+
+            <div>
+                <label for="{{ form.heure.id_for_label }}" class="block text-gray-700 font-semibold">Heure</label>
+                {{ form.heure }}
+            </div>
+
+            <div>
+                <label for="{{ form.prix.id_for_label }}" class="block text-gray-700 font-semibold">Prix (Optionnel)</label>
+                {{ form.prix }}
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg">
+                Enregistrer
+            </button>
+        </form>
+
+        <a href="{% url 'liste_evenements' %}" class="block text-center text-gray-600 mt-4">Annuler</a>
+    </div>
+</body>
+</html>
