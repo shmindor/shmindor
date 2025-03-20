@@ -27,7 +27,7 @@ DEBUG = True
 LOGIN_URL = '/login/'  # Mete URL paj login ou a
 'django.contrib.auth.middleware.AuthenticationMiddleware',
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["lecoindelices.pythonanywhere.com"]
 
 
 # Application definition
@@ -139,3 +139,5 @@ import os
 
 MEDIA_URL = '/media/'  # URL pou aksede imaj yo
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Kote imaj yo ap estoke
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static") 
